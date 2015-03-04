@@ -1,0 +1,29 @@
+lib_component_agent_check_identifiers
+=> nrel_main_idtf:
+	[Компонент библиотеки. sc-агент поиска всех sc-элементов, не имеющих основной идентификатор на некоторых естественных языках]
+	(* <- lang_ru;; *);
+	[Library component. sc-agent of search of all sc-elements, not having main identifiers in some natural languages]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- atomic_reusable_component_OSTIS; 
+<- reusable_scp_agent;
+
+=> nrel_attendant_component: 
+	lib_component_ui_menu_check_identifiers; 
+
+-> rrel_key_sc_element: 
+	.platform_independent_realization_of_sc_agent_check_identifiers; 
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Задачей sc-агента поиска всех sc-элементов, не имеющих основной идентификатор на некоторых естественных языках, является поиск всех sc-элементов, имеющих системный идентификатор, но не имеющих основной идентифкатор в рамках хотя бы одного из естественных языков, известных системе (или даже всех таких языков).]
+				(* <- lang_ru;; *);; 
+		*);;
+	*);;

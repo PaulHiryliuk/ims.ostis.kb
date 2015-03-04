@@ -1,0 +1,10 @@
+section_kpm_agent_library_of_kb_verification
+=> nrel_main_idtf:
+	[Раздел. Библиотека sc-агентов верификации баз знаний] 
+	(* <- lang_ru;; *);
+	[Section. Library of sc-agents of knowledge base verification]
+	(* <- lang_en;; *);;
+	
+section_kpm_agent_library_of_kb_verification = [*^"file://section_kpm_agent_library_of_kb_verification.scsi"*];;
+
+rrel_key_sc_element -> (section_kpm_agent_library_of_kb_verification -> kpm_agent_library_of_kb_verification);;

@@ -1,0 +1,50 @@
+sc_agent_check_translation
+=> nrel_main_idtf:
+	[sc-агент поиска всех sc-текстов, имеющих трансляцию только на некоторые внешние языки] 
+	(* <- lang_ru;; *);
+	
+	[sc-agent of search all sc-text, translated to only several languages but not all] 
+	(* <- lang_en;; *);
+
+<- abstract_sc_agent;
+
+=> nrel_primary_initiation_condition: 
+	(sc_event_add_output_arc => question_initiated);
+
+=> nrel_initiation_condition_and_result: 
+	(..sc_agent_check_translation_condition => ..sc_agent_check_translation_result);
+
+<= nrel_sc_agent_key_sc_elements: 
+	{
+	question_initiated;
+	question;
+	question_check_translation
+	};
+
+=> nrel_inclusion: 
+	.platform_independent_realization_of_sc_agent_check_translation
+	(*
+	<- platform_independent_abstract_sc_agent;;
+	<= nrel_sc_agent_program: 
+		{
+		agent_check_translation;
+		proc_finding_identifier
+		};;
+	-> sc_agent_check_translation_scp   
+		(* <- active_sc_agent;;	*);;
+	*);;
+
+..sc_agent_check_translation_condition
+= [*
+	question_check_translation _-> .._question;;
+	question_initiated _-> .._question;;
+	question _-> .._question;;
+*];;
+
+..sc_agent_check_translation_result
+= [*
+	question_check_translation _-> .._question;;
+	question_finished _-> .._question;;
+	question _-> .._question;;
+	.._question _=> nrel_answer:: .._answer;;
+*];;

@@ -1,0 +1,14 @@
+ui_menu_check_identifiers <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_check_identifiers => nrel_main_idtf: [Запрос всех sc-элементов, не имеющих основной идентификатор на некоторых естественных языках] (* <- lang_ru;; *);;
+ui_menu_check_identifiers => nrel_main_idtf: [Request of all sc-elements, not having main identifiers in some natural languages] (* <- lang_en;; *);;
+
+ui_menu_check_identifiers => ui_nrel_command_template:
+	[*
+		question_check_identifiers _-> ._question_search_all_identifiers_instance;;
+		._question_search_all_identifiers_instance _-> ui_arg_1;;
+		._question_search_all_identifiers_instance _<- question;;
+	*];;
+
+ui_menu_check_identifiers => ui_nrel_command_lang_template: [Запрос всех sc-элементов, не имеющих основной идентификатор на некоторых естественных языках: $ui_arg_1] (* <- lang_ru;; *);;
+ui_menu_check_identifiers => ui_nrel_command_lang_template: [Request of all sc-elements, not having main identifiers in some natural languages: $ui_arg_1] (* <- lang_en;; *);;

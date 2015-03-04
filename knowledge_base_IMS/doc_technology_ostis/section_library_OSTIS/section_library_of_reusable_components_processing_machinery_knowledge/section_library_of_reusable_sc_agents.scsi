@@ -17,6 +17,7 @@ library_of_reusable_sc_agents
 	kpm_agent_library_of_solution_search_of_formulated_tasks;
 	kpm_agent_library_of_logical_inference;
 	kpm_agent_library_of_garbage_collection;
+	kpm_agent_library_of_kb_verification;
 	kpm_agent_library_of_coordination
 	};
 

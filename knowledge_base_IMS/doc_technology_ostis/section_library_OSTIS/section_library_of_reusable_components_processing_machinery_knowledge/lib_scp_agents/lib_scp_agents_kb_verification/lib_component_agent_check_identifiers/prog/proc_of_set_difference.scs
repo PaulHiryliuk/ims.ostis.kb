@@ -1,0 +1,70 @@
+scp_program -> proc_of_set_difference 
+	(*	
+	-> rrel_params: ...
+		(*
+		-> rrel_1: rrel_in: _set1;;
+		-> rrel_2: rrel_in: _set2;;
+		-> rrel_3: rrel_in: _result;;
+		*);;
+
+	-> rrel_operators: ...
+		(*
+		-> rrel_init: .proc_of_set_difference_operator1
+			(*
+		 	<- searchSetStr3;;
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _set1;;
+		 	-> rrel_2: rrel_assign: rrel_const: rrel_scp_var: _arc1;;
+		 	-> rrel_3: rrel_assign: rrel_scp_var: _elem;;
+	         
+                 	-> rrel_set_3: rrel_assign: rrel_scp_var: _set1_copy;;
+
+                 	=> nrel_then: .proc_of_set_difference_operator2;;
+			=> nrel_else: .proc_of_set_difference_operator_return;;
+                 	*);;
+
+		-> .proc_of_set_difference_operator2
+			(*
+		 	<- searchElStr3;;
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _set1_copy;;
+		 	-> rrel_2: rrel_assign: rrel_const: rrel_scp_var: _arc1;;
+		 	-> rrel_3: rrel_assign: rrel_scp_var: _elem;;
+	         
+                 	=> nrel_then: .proc_of_set_difference_operator3;;
+			=> nrel_else: .proc_of_set_difference_operator_clean;;
+                 	*);;
+
+		-> .proc_of_set_difference_operator3
+			(*
+		 	<- searchElStr3;;
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _set2;;
+		 	-> rrel_2: rrel_assign: rrel_const: rrel_scp_var: _arc1;;
+		 	-> rrel_3: rrel_fixed: rrel_scp_var: _elem;;
+	         
+                 	=> nrel_then: .proc_of_set_difference_operator2;;
+			=> nrel_else: .proc_of_set_difference_operator4;;
+                 	*);;
+
+		-> .proc_of_set_difference_operator4
+			(*
+		 	<- genElStr3;;
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+		 	-> rrel_2: rrel_assign: rrel_const: rrel_scp_var: _arc1;;
+		 	-> rrel_3: rrel_fixed: rrel_scp_var: _elem;;
+	         
+			=> nrel_goto: .proc_of_set_difference_operator2;;
+                 	*);;
+
+		-> .proc_of_set_difference_operator_clean
+			(*
+		 	<- eraseEl;;
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _set1_copy;;
+
+                	=> nrel_goto: .proc_of_set_difference_operator_return;;
+		 	*);;
+
+		-> .proc_of_set_difference_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;

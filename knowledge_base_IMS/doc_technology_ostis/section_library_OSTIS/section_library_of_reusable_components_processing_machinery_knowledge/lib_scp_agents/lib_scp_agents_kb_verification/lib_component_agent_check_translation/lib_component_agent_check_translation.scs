@@ -1,0 +1,29 @@
+lib_component_agent_check_translation
+=> nrel_main_idtf:
+	[Компонент библиотеки. sc-агент поиска всех sc-текстов, имеющих трансляцию только на некоторые внешние языки]
+	(* <- lang_ru;; *);
+	[Library component. sc-agent of search all sc-text, translated to only several languages but not all]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS; 
+<- atomic_reusable_component_OSTIS; 
+<- reusable_scp_agent;
+
+=> nrel_attendant_component: 
+	lib_component_ui_menu_check_translation; 
+
+-> rrel_key_sc_element: 
+	.platform_independent_realization_of_sc_agent_check_translation; 
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Задачей sc-агента поиска всех sc-текстов, имеющих трансляцию только на некоторые внешние языки, является поиск всех sc-текстов, имеющих трансляцию на какой-либо внешний естественный язык, например русский, но не имеющих трансляции на другие известные системе естественные языки, например английский и т.д.]
+				(* <- lang_ru;; *);; 
+		*);;
+	*);;
